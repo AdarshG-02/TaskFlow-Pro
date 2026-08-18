@@ -254,20 +254,32 @@ taskflow_pro
 
 Import or create the required database tables before running the application.
 
-5. Configure the API URL
+## 5. Configure the API URL
 
-The Flutter application communicates with the PHP backend through:
+The Flutter application communicates with the PHP backend through the API base URL configured in:
 
+```text
 lib/services/api_service.dart
+```
 
-Update the API base URL according to the environment where the backend is hosted.
+Update the `baseUrl` according to the server where the PHP backend is hosted.
 
-Example:
+For example, if the backend is hosted online:
 
-static const String baseUrl =
-    "http://YOUR_SERVER_IP/taskflow_api";
+```dart
+static const String baseUrl = "https://your-domain.com/taskflow_api";
+```
 
-For local network testing, replace YOUR_SERVER_IP with the IP address of the computer hosting the PHP backend.
+If running the project on a local network, use the IP address of the computer hosting the PHP backend:
+
+```dart
+static const String baseUrl = "http://YOUR_SERVER_IP/taskflow_api";
+```
+
+Replace `YOUR_SERVER_IP` with the IPv4 address of the computer running XAMPP.
+
+> **Note:** Do not use `localhost` when running the Flutter application on a physical mobile device, because `localhost` refers to the mobile device itself rather than the computer hosting the PHP backend.
+
 
 6. Run the Application
 
