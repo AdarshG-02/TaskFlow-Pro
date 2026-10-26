@@ -48,6 +48,7 @@ $stmt->bind_param(
 if ($stmt->execute()) {
     sendResponse(true, "Account created successfully");
 } else {
+    error_log("Registration insert failed: " . $stmt->error);
     sendResponse(false, "Registration failed");
 }
 
