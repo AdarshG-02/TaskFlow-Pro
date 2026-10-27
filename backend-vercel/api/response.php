@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 function sendResponse($success, $message, $data = [])
 {
@@ -13,4 +13,4 @@ function sendResponse($success, $message, $data = [])
     exit();
 }
 
-?>
+

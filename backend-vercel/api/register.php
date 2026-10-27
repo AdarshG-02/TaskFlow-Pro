@@ -1,4 +1,4 @@
-```php
+﻿```php
 <?php
 
 include "config.php";
@@ -90,5 +90,5 @@ if ($inserted) {
 error_log("Registration failed after ID generation retries");
 sendResponse(false, "Registration failed. Please try again.");
 
-?>
+
 ```
