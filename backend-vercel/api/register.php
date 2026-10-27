@@ -89,6 +89,3 @@ if ($inserted) {
 
 error_log("Registration failed after ID generation retries");
 sendResponse(false, "Registration failed. Please try again.");
-
-
-```
