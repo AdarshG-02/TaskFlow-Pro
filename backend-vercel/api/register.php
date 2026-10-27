@@ -1,5 +1,4 @@
-﻿```php
-<?php
+﻿<?php
 
 include "config.php";
 include "response.php";
