@@ -5,29 +5,40 @@ class ApiService {
   static const String baseUrl =
     "https://taskflow-pro-backend-vercel.vercel.app/api";
 // REGISTER USER
-  static Future<Map<String, dynamic>> registerUser({
-    required String fullName,
-    required String email,
-    required String password,
-  }) async {
-    try {
-      final response = await http.post(
-        Uri.parse("$baseUrl/register.php"),
-        body: {
-          "full_name": fullName,
-          "email": email,
-          "password": password,
-        },
-      );
+ 
 
-      return jsonDecode(response.body);
-    } catch (e) {
-      return {
-        "success": false,
-        "message": "Unable to connect to server."
-      };
-    }
+static Future<Map<String, dynamic>> registerUser({
+  required String fullName,
+  required String email,
+  required String password,
+}) async {
+  try {
+    print("REGISTER DEBUG: Request starting");
+    print("REGISTER DEBUG: URL $baseUrl/register.php");
+
+    final response = await http.post(
+      Uri.parse("$baseUrl/register.php"),
+      body: {
+        "full_name": fullName,
+        "email": email,
+        "password": password,
+      },
+    );
+
+    print("REGISTER DEBUG: Status ${response.statusCode}");
+    print("REGISTER DEBUG: Body ${response.body}");
+
+    return jsonDecode(response.body) as Map<String, dynamic>;
+  } catch (e) {
+    print("REGISTER ERROR: $e");
+
+    return {
+      "success": false,
+      "message": "Unable to connect: $e",
+    };
   }
+}
+
 
   // LOGIN USER
   static Future<Map<String, dynamic>> loginUser({
